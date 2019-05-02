@@ -34,8 +34,7 @@ def keys(size):
     q = generate_prime_numbers(size)
     n =  p * q
     g =  random.getrandbits(size)
-    if (gcd(g, n**2) == 1):
-        g = g
+    assert gcd(g, n**2) == 1
     Lambda =  lcm(p-1, q-1)
     x = pow(g, Lambda, n**2)
     mu = modinv(L(x,n), n)
@@ -52,6 +51,7 @@ def dec(n, Lambda, mu, ct):
     return pt
 def main():
     n,g,Lambda,mu = keys(1024)
+    print(n,g,Lambda, mu)
     disp = input("Do you want to test for homomorphism?(y/n):")
     if(disp == 'y'):
         print("Good choice,let us have some fun!")
