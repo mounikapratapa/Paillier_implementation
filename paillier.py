@@ -32,6 +32,7 @@ def L(x, n):
 def keys(size):
     p = generate_prime_numbers(size)
     q = generate_prime_numbers(size)
+    assert p != q
     n =  p * q
     g =  random.getrandbits(size)
     assert gcd(g, n**2) == 1
